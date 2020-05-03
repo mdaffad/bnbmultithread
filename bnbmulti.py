@@ -122,12 +122,12 @@ class Matrix:
         for i in range(4):
             if self.canMove(movementList[i]):
                 resultNodeQueue.append(Matrix(self.container, self.score, self.lastMovement))
-                resultNodeQueue[len(resultNodeQueue) - 1].move(movementList[i])
-                # t.append(threading.Thread(target=resultNodeQueue[len(resultNodeQueue) - 1].move, args=(movementList[i],)))
-        # for x in t:
-        #     x.start()
-        # for x in t:
-        #     x.join()
+                # resultNodeQueue[len(resultNodeQueue) - 1].move(movementList[i])
+                t.append(threading.Thread(target=resultNodeQueue[len(resultNodeQueue) - 1].move, args=(movementList[i],)))
+        for x in t:
+            x.start()
+        for x in t:
+            x.join()
         return resultNodeQueue
 
 
@@ -163,11 +163,11 @@ class MatrixQueue:
             print("---------QUEUE END---------")
             print()
 
-        # time.sleep()
+        # time.sleep(1)
 
 
 start_time = time.time()
-f = open("test1.txt", "r")
+f = open("test3.txt", "r")
 inputMatrix = [[0 for y in range(4)] for x in range(4)]
 
 for i in range(4):
