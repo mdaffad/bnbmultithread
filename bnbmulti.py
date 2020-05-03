@@ -167,7 +167,7 @@ class MatrixQueue:
 
 
 start_time = time.time()
-f = open("test3.txt", "r")
+f = open("test1.txt", "r")
 inputMatrix = [[0 for y in range(4)] for x in range(4)]
 
 for i in range(4):
